@@ -8,6 +8,8 @@ router.get("/search", restaurantController.get_restaurants)
 
 router.get("/cities", countryController.get_cities)
 
+router.get("/districts", countryController.get_districts)
+
 router.get("/neighborhoods", countryController.get_neighborhoods)
 
 router.post("/login", restaurantController.login)
