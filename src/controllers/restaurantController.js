@@ -4,9 +4,6 @@ const dbRestaurant = require("../models/restaurant")
       bcrypt = require("bcrypt")
       path = require("path")
 
-// paginate function
-require("../middleware/paginate")
-
 // localhost/restaurant/RES_ID
 exports.restaurant = async (req, res) => {
 
@@ -60,7 +57,7 @@ exports.get_food = async (req, res) => {
 
     const rest = await dbFood.find({res_id: req.params.restaurant})
     if (!rest) return res.json({error: "not found"})
-    res.json(rest.paginate(req.query.page, req.query.limit))
+    res.json(rest)
 
 }
 
@@ -76,7 +73,7 @@ exports.get_restaurants = async (req, res) => {
         "res_location.district": req.query.district
     })
 
-    if (rest) res.json(rest.paginate(req.query.page, req.query.limit))
+    if (rest) res.json(rest)
 
 }
 

@@ -1,7 +1,5 @@
 const dbRestaurant = require("../models/restaurant") 
       dbFood = require("../models/food")
-      
-require("../middleware/paginate")
 
 exports.get_cities = async (req, res) => {
 
@@ -13,7 +11,7 @@ exports.get_cities = async (req, res) => {
     const fixDuplicates = cities.filter((elem, pos) => {
         return cities.indexOf(elem) == pos
     })
-    res.json(fixDuplicates.paginate(req.query.page, req.query.limit))
+    res.json(fixDuplicates)
 
 
 }
@@ -42,7 +40,7 @@ exports.get_neighborhoods = async (req, res) => {
     const fixDuplicates = neighborhoods.filter((elem, pos) => {
         return neighborhoods.indexOf(elem) == pos
     })
-    res.json(fixDuplicates.paginate(req.query.page, req.query.limit))
+    res.json(fixDuplicates)
 
 }
 
