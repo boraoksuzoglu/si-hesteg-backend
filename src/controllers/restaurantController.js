@@ -73,7 +73,11 @@ exports.get_restaurants = async (req, res) => {
         "res_location.district": req.query.district
     })
 
-    if (rest) res.json(rest.map(r => (r.res_location, r.res_name, r.res_phone)))
+    if (rest) res.json(rest.map(r => { return {
+        "location": r.res_location,
+        "res_name": r.res_name,
+        "res_phone": r.res_phone,
+    }}))
 
 }
 
