@@ -12,6 +12,7 @@ exports.restaurant = async (req, res) => {
         "res_location": rest.res_location,
         "res_name": rest.res_name,
         "res_phone": rest.res_phone
+        "_id": rest._id
     })
     else res.json({error: "not found"})
 
@@ -70,6 +71,7 @@ exports.get_restaurants = async (req, res) => {
         "location": r.res_location,
         "res_name": r.res_name,
         "res_phone": r.res_phone,
+        "_id": r._id
     }}))
 
 }
