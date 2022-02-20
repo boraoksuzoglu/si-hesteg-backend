@@ -20,10 +20,6 @@ exports.restaurant = async (req, res) => {
 // localhost/restaurant/upload
 exports.upload_food = async (req, res) => {
 
-    // DENEME İÇİN SİL BURAYI
-    if (!req.body.accessToken) req.body.accessToken = "efb6ac20-91e4-11ec-9c6d-537e70402ebc"
-    // DENEME İÇİN SİL BURAYI
-
     if (!req.body.food || !req.files) return res.json({error: "some parameters are empty"})
 
     const rest = await dbRestaurant.findOne({accessToken: req.body.accessToken})
@@ -41,10 +37,6 @@ exports.upload_food = async (req, res) => {
 
 // localhost/restaurant/remove
 exports.delete_food = async (req, res) => {
-
-    // DENEME İÇİN SİL BURAYI
-    if (!req.body.accessToken) req.body.accessToken = "efb6ac20-91e4-11ec-9c6d-537e70402ebc"
-    // DENEME İÇİN SİL BURAYI
 
     const rest = await dbRestaurant.findOne({accessToken: req.body.accessToken})
 
@@ -68,9 +60,6 @@ exports.get_food = async (req, res) => {
 // localhost/search?
 exports.get_restaurants = async (req, res) => {
 
-    console.log(req.query.city)
-    // BURAYI DÜZELTMEYİ UNUTMA
-    // REQ.QUERY.X undefined ise diğer verilere göre aramasını sağlaman lazım.
     const rest = await dbRestaurant.find({
         "res_location.neighborhood": req.query.neighborhood, 
         "res_location.city": req.query.city, 
