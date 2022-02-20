@@ -15,21 +15,6 @@ exports.get_cities = async (req, res) => {
 
 
 }
-
-exports.get_districts = async (req, res) => {
-
-    // req.query.city
-    //example respond: res.json(["İlçe 1", "İlçe 2"])
-
-    const restaurants = await dbRestaurant.find({"res_location.city": req.query.city})
-    const districts = restaurants.map(s => s.res_location.district)
-    const fixDuplicates = districts.filter((elem, pos) => {
-        return districts.indexOf(elem) == pos
-    })
-    res.json(fixDuplicates.paginate(req.query.page, req.query.limit))
-
-}
-
 exports.get_neighborhoods = async (req, res) => {
 
     // req.query.city & req.query.district
