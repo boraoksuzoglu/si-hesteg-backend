@@ -11,7 +11,7 @@ exports.restaurant = async (req, res) => {
     if (rest) res.json({
         "res_location": rest.res_location,
         "res_name": rest.res_name,
-        "res_phone": rest.res_phone
+        "res_phone": rest.res_phone,
         "_id": rest._id
     })
     else res.json({error: "not found"})
@@ -87,7 +87,7 @@ exports.login = async (req, res) => {
     const accessToken = uuid.v1()
     await dbRestaurant.updateOne({username: req.body.username}, {$set: {accessToken: accessToken}})
 
-    res.json({accessToken: accessToken})
+    res.json({_id: user._id, accessToken: accessToken})
 
 }
 
