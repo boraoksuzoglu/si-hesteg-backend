@@ -8,7 +8,11 @@ const dbRestaurant = require("../models/restaurant")
 exports.restaurant = async (req, res) => {
 
     const rest = await dbRestaurant.findById(req.params.restaurant)
-    if (rest) res.json(rest)
+    if (rest) res.json({
+        "res_location": rest.res_location,
+        "res_name": rest.res_name,
+        "res_phone": rest.res_phone
+    })
     else res.json({error: "not found"})
 
 }
