@@ -8,17 +8,20 @@ Artan yemekleri ihtiyaç sahipleriyle buluşturuyoruz.
 git clone https://github.com/si-hesteg/si-hesteg-backend
 ```
 
-### config.json setup
+### config.json Setup
 ```json
 {
     "mongodb": "ENTER MONGODB URL"
 }
 ```
 
-### Run Project
-Install node modules and run project.
+### Install Node Modules
 ```js
 npm install
+```
+
+### Run Project
+```js
 npm run dev // start with nodemon
 npm start
 ```
@@ -32,19 +35,13 @@ Your project is running on https://localhost:3000.
 
 | Path | Method | Params |Description |
 | ----------- | ----------- | ----------- | ----------- |
-| /search? | GET | city, district, neighborhood, page, limit | Get restaurants |
-| /cities | GET | page, limit | Get cities with restaurants |
-| /neighborhoods | GET | city, district, page, limit | Get neighborhoods with restaurants |
+| /search? | GET | city, district, neighborhood | Get restaurants |
+| /cities | GET | - | Get cities with restaurants |
+| /districts | GET | - | Get districts with restaurants |
+| /neighborhoods | GET | city, district | Get neighborhoods with restaurants |
 | /restaurant/RESTAURANT_ID | GET | - | Get restaurant |
-| /restaurant/RESTAURANT_ID/food | GET | page, limit | Get foods of restaurant |
+| /restaurant/RESTAURANT_ID/food | GET | - | Get foods of restaurant |
 | /restaurant/upload | POST | - | Upload a food |
 | /restaurant/delete | POST | - | Delete a food |
 | /login | POST | - | Login |
 | /register | POST | - | Register |
-
----
-
-### Data pagination (page, limit parameters):
-Its brings a limited number of data in one request.
-
-for example: `localhost:3000/cities?page=2&limit=10` its brings data between 11th and 20th.
