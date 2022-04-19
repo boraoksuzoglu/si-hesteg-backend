@@ -1,11 +1,11 @@
 # ShareFood
-Artan yemekleri ihtiyaç sahipleriyle buluşturuyoruz.
+The backend side of the project we created at the Hackathon organized by Appcent.
 
 ---
 ## Development
 ### Install Repository
 ```git
-git clone https://github.com/si-hesteg/si-hesteg-backend
+git clone https://github.com/boraoksuzoglu/si-hesteg-backend
 ```
 
 ### config.json Setup
